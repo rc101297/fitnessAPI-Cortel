@@ -45,7 +45,9 @@ module.exports.updateWorkout = (req, res) => {
     duration: req.body.duration,
   };
 
-  return Workout.findByIdAndUpdate(req.params.workoutId, updatedWorkout)
+  return Workout.findByIdAndUpdate(req.params.workoutId, updatedWorkout, {
+    new: true,
+  })
     .then((workout) => {
       if (workout) {
         res.status(200).send({
@@ -65,7 +67,9 @@ module.exports.completeWorkoutStatus = async (req, res) => {
     status: req.body.status,
   };
 
-  return Workout.findByIdAndUpdate(req.params.workoutId, completedWorkout)
+  return Workout.findByIdAndUpdate(req.params.workoutId, completedWorkout, {
+    new: true,
+  })
     .then((workout) => {
       if (workout) {
         res.status(200).send({
