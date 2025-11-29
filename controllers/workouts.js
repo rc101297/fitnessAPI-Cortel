@@ -26,7 +26,7 @@ module.exports.addWorkout = (req, res) => {
 
 // Get all Workouts
 module.exports.getMyWorkouts = (req, res) => {
-  return Workout.find({})
+  return Workout.find({ userId: req.user.id })
     .then((result) => {
       if (result.length > 0) {
         res.status(200).send({ workouts: result });
