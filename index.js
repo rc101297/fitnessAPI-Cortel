@@ -17,7 +17,11 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ["http://localhost:8000", "http://localhost:5173"],
+  origin: [
+    "http://localhost:8000",
+    "http://localhost:5173",
+    "http://localhost:5174",
+  ],
   credentials: true,
   optionsSuccessStatus: 200,
 };
@@ -36,8 +40,8 @@ app.use("/users", userRoutes);
 app.use("/workouts", workoutRoutes);
 
 if (require.main === module) {
-  app.listen(process.env.PORT || 4000, () => {
-    console.log(`API is now online on port ${process.env.PORT || 4000}`);
+  app.listen(process.env.PORT || 3000, () => {
+    console.log(`API is now online on port ${process.env.PORT || 3000}`);
   });
 }
 
