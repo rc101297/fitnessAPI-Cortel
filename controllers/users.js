@@ -29,7 +29,7 @@ module.exports.registerUser = (req, res) => {
             .save()
             .then(() =>
               res.status(201).send({
-                message: "Registered successfully",
+                message: "Registered Successfully",
               })
             )
             .catch((error) => errorHandler(error, req, res));
